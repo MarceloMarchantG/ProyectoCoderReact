@@ -1,7 +1,9 @@
+import React from 'react';
 import logo from '../img/logo-chico-removebg.png';
 import carro from '../img/cart.svg';
 import user from '../img/person.svg';
 import './NavBar.css';
+import CartWidget from './CartWidget';
 
 const NavBar = () => {
     return(
@@ -21,11 +23,11 @@ const NavBar = () => {
                 </a>
 
 
-
+{/* 
                 <a href="sections/cart.html"  title="Ir al Carro">
                     <img class="icon" src={carro} alt="Carrito"/>
-                </a>
-
+                </a> */}
+                <CartWidget />
 
             </div>
         </nav>    
