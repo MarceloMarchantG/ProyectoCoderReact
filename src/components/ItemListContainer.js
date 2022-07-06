@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import LinearProgress from '@mui/material/LinearProgress';
 
 
+
 const productStock = [{"type":"H","id":"11","name":"Rod Big Boss","price":6500,"quantity":1,"estate":"activo","description":"Jugosa hamburguesa doble con cheddar, tocino, aros de cebolla y un huevo frito.","imagen":"./img/h-rod-big-boss.jpeg","stock":10},
 {"type":"H","id":"12","name":"Rod Dills","price":5500,"quantity":1,"estate":"activo","description":"Jugosa hamburguesa sobre cama de lechuga, con cheddar pepinillos y mayonesa casera, simplemente deliciosa.","imagen":"img/h-rod-dills.jpeg","stock":10},
 {"type":"H","id":"13","name":"Rod Spicy","price":6600,"quantity":1,"estate":"activo","description":"Para los amantes del picante, deliciosa hamburguesa con cheddar, jalapeño, cebolla morada en cuadritos, papas hilo y la salsa secreta de la casa.","imagen":"img//h-rod-spicy.jpeg","stock":10},
@@ -19,7 +20,7 @@ const productStock = [{"type":"H","id":"11","name":"Rod Big Boss","price":6500,"
 const promesa = new Promise((res, rej) => {
     setInterval(() => {    
     res(productStock)
-    }, 2000);
+    }, 1000);
 });
 
 
@@ -36,7 +37,12 @@ const ItemListContainer = ({greetings}) =>{
         alert(`Se agregaron ${counter} productos al carro`); 
     }
 
-    useEffect(()=>{
+    useEffect(()=>{            
+
+        // fetch('https://dummyjson.com/products/?limit=50')
+        // .then(res => res.json())
+        // .then(data => setProductList(data.products))
+            
 
         promesa.then((data)=>{
             setProductList(data);
@@ -53,6 +59,7 @@ const ItemListContainer = ({greetings}) =>{
         <h3>Productos</h3>
         {loading && <LinearProgress color="success" />}
         <ItemList productos={productList}/>
+        
     </div>
     )
     

@@ -5,7 +5,7 @@ import "./Item.css";
 
 const Item = ({produ})=>{
 
-    console.log(produ)
+    console.log(produ.category)
     return(
 
     <div className="card">
@@ -20,6 +20,10 @@ const Item = ({produ})=>{
         </div>
        
     </div>
+       
+
+
+
 )
 
 
