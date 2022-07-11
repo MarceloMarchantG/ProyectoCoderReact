@@ -4,7 +4,14 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        'title':['"Playfair Display"'],
+      },
+      colors:{
+        navbar: '#5271FF',
+      }
+    },
   },
   plugins: [],
 }

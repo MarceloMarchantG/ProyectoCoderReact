@@ -1,4 +1,4 @@
-.itemDetail{
+/* .itemDetail{
     display: grid; 
     grid-template-columns: 0.6fr 1.4fr; 
     grid-template-rows: 0.6fr 1.5fr 0.9fr 0.6fr; 
@@ -13,9 +13,9 @@
     background-color: white;
     border-radius: 5px;
     margin: 0 auto;
-}
+} */
 
-.imgDetail { 
+/* .imgDetail { 
     grid-area: imgDetail; 
     border-radius: 5px;
     margin: 10px;
@@ -62,4 +62,4 @@
         transform: scale(1.05);
         transition: all 0.25s; 
         background-color: #e79d35;
-}
+} */

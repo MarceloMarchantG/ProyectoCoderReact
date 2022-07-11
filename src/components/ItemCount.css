@@ -1,12 +1,12 @@
-.input-group {
+/* .input-group {
   justify-content: center;
-  padding-bottom: 5px; }
+  padding-bottom: 5px; } */
 
 input {
   text-align: center;
   border-width: 1px;
   font-size: .90rem; }
-.btn {
+/* .btn {
     color: black;
     background-color: #e79d35;
     border-color: #e79d35; 
@@ -24,4 +24,4 @@ input {
         
 .btn-sm {
     padding: 0.1rem 0.3rem;
-    font-size: 1rem; }
+    font-size: 1rem; } */

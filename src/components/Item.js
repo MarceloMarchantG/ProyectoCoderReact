@@ -1,24 +1,27 @@
+import { ProductionQuantityLimits } from "@mui/icons-material";
 import React from "react";
 import "./Item.css";
+import { Link } from "react-router-dom";
 
 
 
 const Item = ({produ})=>{
 
-    console.log(produ.category)
+const URL = `/product/${produ.id}`
+    
     return(
 
-    <div className="card">
-        <img className="cardImage" src={produ.imagen} alt="" />
-        <div className="cardBody">
-            <h4 className="cardTitle" >{produ.name}</h4>
-            {/* <p className="cardText">{produ.description}</p> */}
+    <div className=" bg-white w-80 shadow-lg rounded-sm gap-y-1 my-2">
+        <img className="objet-contain rounded-sm h-48 w-full items-center bg-white flex flex-col justify-between p-2 " src={produ.thumbnail} alt="" />
+        <div className="justify-between p-4 bg-cover bg-center">
+            <p className="text-gray-500 font-light text-xs text-center">{produ.brand} </p>
+            <h4 className="text-gray-800 text-center mt-1" >{produ.title}</h4>      
+            <p className="text-gray-800 text-center mt-1">$ {produ.price}</p>
         </div>
-        <div className="cardFooter">
-            <p className="price">$ {produ.price}</p>
-    
+        {/* <ItemCount stock={produ.stock} initial={1} onAdd={onAdd}/> */}
+        <div className="p-4 flex flex-col items-center">    
+            <Link to={URL} > <button className=" py-2 px-6 flex items-center place-self-center bg-blue-500 text-white font-bold rounded-md" onClick={()=>console.log(produ.id)} >Ver detalle  </button></Link>
         </div>
-       
     </div>
        
 
