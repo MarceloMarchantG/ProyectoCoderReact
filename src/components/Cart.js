@@ -17,6 +17,7 @@ const Cart = ()=>{
         </div>
         )}
         <button onClick={()=>{clearCart()}}>Borrar carro</button>
+        
         </>
     )
 }
