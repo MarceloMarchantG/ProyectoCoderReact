@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createContext, useState } from "react";
 
 
@@ -9,14 +9,28 @@ const { Provider } = cartContext;
 const CartProvider = ({children}) => {
 
     const [ products, setProducts] = useState([]);
+    const [ qtyItem, setQtyItem] = useState(0)
 
+    
     const getQtyItem =()=>{
+        let qty = 0;
+        products.forEach(element => {
+            qty = element.quantity + qty
 
+        });
+        setQtyItem(qty)
     }
+
+useEffect(()=> {
+    getQtyItem();
+}, [products]
+) 
+
+
 
     const addItem = (product) =>{
         if(isInCart(product.id)){
-            console.log(`el id es ${product.id}`)
+           
             const auxCart = [...products];
             
             const found = auxCart.find(i => i.id === product.id);
@@ -25,16 +39,19 @@ const CartProvider = ({children}) => {
             
         }else{
             setProducts([...products, product])
-            console.log(product)
-        }
+           
+        };
+        
     }
 
     const removeItem = (id)=>{
-        setProducts(products.filter(del => del.id !== id))
+        setProducts(products.filter(del => del.id !== id));
+       
     }
 
     const clearCart = () => {
         setProducts([]);
+        setQtyItem(0);
     }
 
     const isInCart = (id)=>{
@@ -42,7 +59,7 @@ const CartProvider = ({children}) => {
     }
 
     return(
-        <Provider value={{ products, addItem, removeItem, clearCart}}>
+        <Provider value={{ products, addItem, removeItem, clearCart, qtyItem}}>
             {children}
         </Provider>
     )

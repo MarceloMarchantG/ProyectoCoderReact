@@ -23,8 +23,6 @@ const ItemDetailContainer = ()=>{
 
   
     useEffect(()=>{  
-
-        console.log(productId)
         
         fetch(`https://dummyjson.com/products/${productId}`)
         .then(res => res.json())

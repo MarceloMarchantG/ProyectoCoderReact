@@ -20,7 +20,7 @@ const URL = `/product/${produ.id}`
         </div>
         {/* <ItemCount stock={produ.stock} initial={1} onAdd={onAdd}/> */}
         <div className="p-4 flex flex-col items-center">    
-            <Link to={URL} > <button className=" py-2 px-6 flex items-center place-self-center bg-blue-500 text-white font-bold rounded-md" onClick={()=>console.log(produ.id)} >Ver detalle  </button></Link>
+            <Link to={URL} > <button className=" py-2 px-6 flex items-center place-self-center bg-blue-500 text-white font-bold rounded-md"  >Ver detalle  </button></Link>
         </div>
     </div>
        

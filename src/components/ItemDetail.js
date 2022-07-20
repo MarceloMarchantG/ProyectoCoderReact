@@ -29,7 +29,7 @@ const ItemDetail =({product})=>{
             return
         }
         setFinish(false)
-        console.log(`Se agregaron ${counter} ${product.title} al carro`)
+    
     
     }
 
