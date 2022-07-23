@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 
 
-const Item = ({produ})=>{
+const Item = ({pId, produ})=>{
 
-const URL = `/product/${produ.id}`
+const URL = `/product/${pId}`
     
     return(
 

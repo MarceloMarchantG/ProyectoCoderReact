@@ -19,26 +19,68 @@ const ItemListContainer = ({greetings}) =>{
     
   
 
-    const URL = categoryName ? `https://dummyjson.com/products/category/${categoryName}` : 'https://dummyjson.com/products/?limit=50';
+    //const URL = categoryName ? `https://dummyjson.com/products/category/${categoryName}` : 'https://dummyjson.com/products/?limit=50';
 
-    useEffect(()=>{      
-        
+    useEffect(()=>{ 
+
+     
+
+        const productsCollection = collection(db, "productos");
+      
+        if (categoryName){
+            
+            const catName = query(productsCollection, where("element.category", "==", categoryName));            
+            getDocs(catName)
+            .then(rest =>{
+                const list = rest.docs.map(doc =>{
+                    return {
+                        id: doc.id,
+                        ...doc.data(),
+                    }
+                })
+                setProductList(list)              
+            })
+            .catch(err=> console.log(err)) 
+            .finally(()=>setLoading(false))
+            
+        } else{
+            
+            const destacados = query(productsCollection, where("element.rating", ">", 4.6));
+            getDocs(destacados)
+            .then(rest =>{
+                const list = rest.docs.map(doc =>{
+                    return {
+                        id: doc.id,
+                        ...doc.data(),
+                    }
+                })
+                setProductList(list)              
+            })
+            .catch(err=> console.log(err)) 
+            .finally(()=>setLoading(false))
+
+
+        }
+                
+      
+        // .catch(err=> console.log(err)) 
+        // .finally(()=>setLoading(false))
        
 
-        fetch(URL)
-        .then(res => res.json())
-        .then(data => setProductList(data.products))
-        .finally(()=>setLoading(false))
+        // fetch(URL)
+        // .then(res => res.json())
+        // .then(data => setProductList(data.products))
+        // .finally(()=>setLoading(false))
 
     },[categoryName])
 
-
+    
        
     return(
     <div className="itemListContainer">
         {/* <h3>{greetings}</h3>
         <ItemCount stock={5} initial={1} onAdd={onAdd}/> */}
-        <h3 className="text-white font-arial font-bold text-5xl text-center">Productos</h3> 
+        <h3 className="text-white font-arial font-bold text-4xl text-center">Productos destacados</h3> 
         {loading ? <LinearProgress color="success" /> : <ItemList productos={productList}/>}
         
     </div>

@@ -5,12 +5,9 @@ import { useEffect, useState } from "react";
 import LinearProgress from '@mui/material/LinearProgress';
 import './ItemDetailContainer.css';
 import { useParams } from "react-router-dom";
+import { db } from "../firebase/firebase";
+import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
 
-// const promesa = new Promise((res, rej) => {
-//     setInterval(() => {    
-//     res(productStock[1])
-//     }, 5000);
-// });
 
 
 
@@ -23,11 +20,29 @@ const ItemDetailContainer = ()=>{
 
   
     useEffect(()=>{  
-        
-        fetch(`https://dummyjson.com/products/${productId}`)
-        .then(res => res.json())
-        .then(data => setProduct(data))
+
+        const productCollection = collection(db, "productos")
+        const refDoc = doc(productCollection, productId)      
+        getDoc(refDoc)
+        .then(rest => {
+            const item = {
+                id: rest.id,
+                ...rest.data(),
+            }
+            setProduct(item)
+           
+        })
+        .catch(err=> console.log(err)) 
         .finally(()=>setLoading(false))
+
+
+
+
+        
+        // fetch(`https://dummyjson.com/products/${productId}`)
+        // .then(res => res.json())
+        // .then(data => setProduct(data))
+        // .finally(()=>setLoading(false))
 
         // promesa.then((data)=>{
         //     setProduct(data);

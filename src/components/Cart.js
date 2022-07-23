@@ -3,18 +3,24 @@ import { useContext } from "react";
 import { cartContext } from "./CartContext";
 import "./Cart.css"
 import { Link } from "react-router-dom";
+import { db } from "../firebase/firebase"
+import { add, addDoc, collection } from "firebase/firestore";
+
+
+
+
 
 const Cart = ()=>{
 
-    const {products, removeItem, clearCart} = useContext(cartContext);
-    
-    let total = 0
+    const {products, removeItem, clearCart, total} = useContext(cartContext);
 
-    products.forEach(element => {
-     total = total + element.price*element.quantity
-   });
-  
 
+//     let total = 0
+//     products.forEach(element => {
+//      total = total + element.element.price*element.quantity
+//    });
+
+   
     return( 
         <div className="cart min-h-screen py-4">
             <h3 className="text-white font-arial font-bold md:text-5xl text-xl text-center pb-3">Carro de compras</h3>
@@ -25,19 +31,19 @@ const Cart = ()=>{
                 <div key={p.id} className=" flex flex-col items-center justify-between p-4 duration-300 md:flex-row md:py-4 md:px-8 ">
                 <div className="flex items-center text-center flex-col md:flex-row md:text-left">
                     <div className=" mb-2.5 md:mb-0 md:mr-2.5 ">
-                        <img className=" w-28 h-28 rounded-md" alt="" src={p.thumbnail}/>
+                        <img className=" w-28 h-28 rounded-md" alt="" src={p.element.thumbnail}/>
                     </div>
                     <div className="w-60 flex flex-col mb-4 mr-1 md:mb-0 md:mr-0">
-                        <p className="text-gray-500 font-light text-xs">{p.brand}</p>
+                        <p className="text-gray-500 font-light text-xs">{p.element.brand}</p>
                         <div className="flex flex-col">
-                            <h4 className="text-gray-800 ">{p.title}</h4>
+                            <h4 className="text-gray-800 ">{p.element.title}</h4>
                         </div>
                     </div>
                 </div>
                 <div className="p-3 flex flex-col md:flex-row items-center justify-between text-center md:text-left ">
                     
-                    <span className="w-28">$ {p.price}</span>            
-                    
+                    <span className="w-28">$ {p.element.price}</span>            
+                   
                     <div className="flex flex-row">
                     {/* <button className="py-0.5 px-3 bg-blue-500 rounded-tl-md rounded-bl-md text-white font-bold" name="aumenta">+</button> */}
                         <input className="w-12 md:w-20 text-gray-600" type="number" readOnly size="1" placeholder={p.quantity} aria-label="Cantidad" />
@@ -46,9 +52,8 @@ const Cart = ()=>{
                 </div>
                 <div className="p-3 flex flex-col sm:flex-row items-center justify-between text-center md:text-right">
                 
-                    <span className="w-28 font-bold">$ {p.price * p.quantity}</span>            
-                    
-
+                    <span className="w-28 font-bold">$ {p.element.price * p.quantity}</span>            
+                   
                 </div>
 
                 <div className="mx-auto md:ml-auto md:mr-0">
@@ -61,7 +66,7 @@ const Cart = ()=>{
                       
                 </div> 
                         
-
+                    
                 )
                 
                     :
@@ -72,13 +77,13 @@ const Cart = ()=>{
                     </svg>Tu carro está vacío</h2>
 
 
-                       <div className="flex flex-col mx-auto md:ml-auto md:ml-0 items-center">
-                            <Link to="/">
-                                <button type="button" className="flex bg-blue-500 py-0.5 px-3 text-white font-bold rounded-md"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
-                                </svg>Volver</button>
-                            </Link>
-                      </div>
+                    <div className="flex flex-col mx-auto md:ml-0  items-center">
+                        <Link to="/">
+                            <button type="button" className="flex bg-blue-500 py-0.5 px-3 text-white font-bold rounded-md"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+                            </svg>Volver</button>
+                        </Link>
+                    </div>
 
                 </div>
   
