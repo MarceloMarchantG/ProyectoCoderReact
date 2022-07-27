@@ -24,7 +24,7 @@ const NavBar = () => {
 
     return(
         <>
-        <nav className=" flex bg-blue-600">
+        <nav className=" flex fixed top-0  left-0 right-0 bg-blue-600">
        
             <div className='leftNavBar'>
          
@@ -36,7 +36,7 @@ const NavBar = () => {
                 <Link to={'/cart'}> <CartWidget /></Link>
             </div>
         </nav>    
-            <div className='flex flex-row bg-blue-500'>                           
+            <div className='flex mt-9 flex-row bg-blue-500'>                           
                 <Link to="/"><img src={logo} className="h-24 mx-2 border-white " alt="logo" /></Link>
                 <h1 className='flex text-5xl font-title italic items-center text-white mx-2'>The All Market</h1>
             </div>

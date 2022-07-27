@@ -7,7 +7,7 @@ import { cartContext } from './CartContext'
 
 const BtnFinish = ()=>(
     <div className="p-4 flex flex-col items-center">
-        <Link to="/cart"><button className="bg-blue-500 py-2 px-6 flex items-center place-self-center rounded-md text-white font-bold"  >Finalizar compra</button></Link>
+        <Link to="/cart"><button className="bg-blue-500 hover:bg-blue-600 py-2 px-6 flex items-center place-self-center rounded-md text-white font-bold"  >Finalizar compra</button></Link>
     </div>
 
 )

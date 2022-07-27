@@ -15,6 +15,8 @@ const Cart = ()=>{
     const {products, removeItem, clearCart, total} = useContext(cartContext);
 
 
+
+
 //     let total = 0
 //     products.forEach(element => {
 //      total = total + element.element.price*element.quantity
@@ -25,7 +27,7 @@ const Cart = ()=>{
         <div className="cart min-h-screen py-4">
             <h3 className="text-white font-arial font-bold md:text-5xl text-xl text-center pb-3">Carro de compras</h3>
             <div className='w-full max-w-5xl  h-full min-h-full mx-auto bg-white rounded-md shadow-xl flex flex-col py-4 overflow-hidden'>
-
+               
                 { products.length !== 0 ?
                 products.map(p => 
                 <div key={p.id} className=" flex flex-col items-center justify-between p-4 duration-300 md:flex-row md:py-4 md:px-8 ">
@@ -45,9 +47,9 @@ const Cart = ()=>{
                     <span className="w-28">$ {p.element.price}</span>            
                    
                     <div className="flex flex-row">
-                    {/* <button className="py-0.5 px-3 bg-blue-500 rounded-tl-md rounded-bl-md text-white font-bold" name="aumenta">+</button> */}
+                    {/* <button className="py-0.5 px-3 bg-blue-500 hover:bg-blue-600 rounded-tl-md rounded-bl-md text-white font-bold" name="aumenta">+</button> */}
                         <input className="w-12 md:w-20 text-gray-600" type="number" readOnly size="1" placeholder={p.quantity} aria-label="Cantidad" />
-                    {/* <button className="py-0.5 px-3 bg-blue-500 rounded-tr-md rounded-br-md text-white font-bold" name="disminuye">-</button>                    */}
+                    {/* <button className="py-0.5 px-3 bg-blue-500 hover:bg-blue-600 rounded-tr-md rounded-br-md text-white font-bold" name="disminuye">-</button>                    */}
                     </div>  
                 </div>
                 <div className="p-3 flex flex-col sm:flex-row items-center justify-between text-center md:text-right">
@@ -57,7 +59,7 @@ const Cart = ()=>{
                 </div>
 
                 <div className="mx-auto md:ml-auto md:mr-0">
-                    <button type="button" className="flex bg-blue-500 py-0.5 px-3 text-white font-bold rounded-md" onClick={()=>{removeItem(p.id)}} >
+                    <button type="button" className="flex bg-blue-500 hover:bg-blue-600 py-0.5 px-3 text-white font-bold rounded-md" onClick={()=>{removeItem(p.id)}} >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
@@ -79,7 +81,7 @@ const Cart = ()=>{
 
                     <div className="flex flex-col mx-auto md:ml-0  items-center">
                         <Link to="/">
-                            <button type="button" className="flex bg-blue-500 py-0.5 px-3 text-white font-bold rounded-md"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <button type="button" className="flex bg-blue-500 hover:bg-blue-600 py-0.5 px-3 text-white font-bold rounded-md"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
                             </svg>Volver</button>
                         </Link>
@@ -100,7 +102,7 @@ const Cart = ()=>{
 
                         <div className="mx-auto sm:ml-auto sm:mr-0 px-10 md:px-10">
                             <Link to="/">
-                                <button type="button" className="flex bg-blue-500 py-0.5 px-3 text-white font-bold rounded-md"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <button type="button" className="flex bg-blue-500 hover:bg-blue-600 py-0.5 px-3 text-white font-bold rounded-md"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
                                 </svg>Seguir comprando</button>
                             </Link>
@@ -119,7 +121,7 @@ const Cart = ()=>{
 
                         <div className="flex flex-col">
                             <div className="flex flex-col mx-auto sm:ml-auto sm:mr-0">
-                                <button type="button" className="flex bg-blue-500 py-0.5 px-3 text-white font-bold rounded-md">Finalizar compra</button>
+                                <Link to="/checkout" ><button type="button" className="flex bg-blue-500 hover:bg-blue-600 py-0.5 px-3 text-white font-bold rounded-md" >Finalizar compra</button></Link>
                             </div>
                         </div>
 
@@ -129,7 +131,7 @@ const Cart = ()=>{
                 </div>
                 <div className=" flex flex-col items-center w-fulljustify-between p-4 duration-300 md:flex-row md:py-4 md:px-8 ">
                     <div className="mx-auto sm:ml-auto ">
-                    <button type="button" className=" bg-blue-500 py-0.5 px-3 text-white font-bold rounded-md" onClick={()=>{clearCart()}}>Vaciar carro</button>
+                    <button type="button" className=" bg-blue-500 hover:bg-blue-600 py-0.5 px-3 text-white font-bold rounded-md" onClick={()=>{clearCart()}}>Vaciar carro</button>
                     </div>
                 </div>
                 </>

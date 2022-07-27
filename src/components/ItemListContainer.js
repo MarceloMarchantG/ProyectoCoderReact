@@ -10,7 +10,7 @@ import { getDocs, collection, query, where } from "firebase/firestore";
 
 
 
-const ItemListContainer = ({greetings}) =>{
+const ItemListContainer = ({title}) =>{
 
     const [productList, setProductList] = useState([])
     const [loading, setLoading] = useState (true)
@@ -80,7 +80,7 @@ const ItemListContainer = ({greetings}) =>{
     <div className="itemListContainer">
         {/* <h3>{greetings}</h3>
         <ItemCount stock={5} initial={1} onAdd={onAdd}/> */}
-        <h3 className="text-white font-arial font-bold text-4xl text-center">Productos destacados</h3> 
+        <h3 className="text-white font-arial font-bold text-4xl text-center">{title}</h3> 
         {loading ? <LinearProgress color="success" /> : <ItemList productos={productList}/>}
         
     </div>
