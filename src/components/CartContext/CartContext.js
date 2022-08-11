@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { createContext, useState } from "react";
 
-
-
 export const cartContext = createContext();
+
 const { Provider } = cartContext;
 
 const CartProvider = ({children}) => {
@@ -12,7 +11,6 @@ const CartProvider = ({children}) => {
     const [ qtyItem, setQtyItem] = useState(0)
     const [ total, setTotal ] = useState(0)
 
-
     const tot =()=>{
         let subtotal=0;
         products.forEach(elment=>{
@@ -20,44 +18,35 @@ const CartProvider = ({children}) => {
         });
         setTotal(subtotal)
     }
-
     
-    const getQtyItem =()=>{
+    const getQtyItem = ()=>{
         let qty = 0;
         products.forEach(element => {
             qty = element.quantity + qty
-
         });
         setQtyItem(qty)
     }
 
-useEffect(()=> {
-    getQtyItem();
-    tot();
-}, [products]
-) 
-
-
+    useEffect(()=> {
+        getQtyItem();
+        tot();
+    }, [products]
+    ) 
 
     const addItem = (product) =>{
-        if(isInCart(product.id)){
-           
-            const auxCart = [...products];
-            
+        if(isInCart(product.id)){           
+            const auxCart = [...products];            
             const found = auxCart.find(i => i.id === product.id);
             found.quantity += product.quantity;
-            setProducts(auxCart)
-            
+            setProducts(auxCart)            
         }else{
-            setProducts([...products, product])
-           
+            setProducts([...products, product])           
         };
         tot()
     }
 
     const removeItem = (id)=>{
-        setProducts(products.filter(del => del.id !== id));
-       
+        setProducts(products.filter(del => del.id !== id));       
     }
 
     const clearCart = () => {
