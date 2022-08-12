@@ -8,7 +8,7 @@ Se simula el funcionamiento de la página de venta de una multitienda, con más 
 ## Demo
 ![gif](https://media.giphy.com/media/Q4MKhhHPhc9NbeClt2/giphy.gif)
 
-Si quieres ver el deploy de este proyecto, puedes visitar el [Demo del Proyecto](http://netlify.com)
+Si quieres ver el deploy de este proyecto, puedes visitar el [Demo del Proyecto](https://proyecto-reactjs-coder.netlify.app/)
 
 ## Estado del proyecto
 
