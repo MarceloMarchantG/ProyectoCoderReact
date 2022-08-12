@@ -9,7 +9,7 @@ module.exports = {
         'title':['"Playfair Display"'],
       },
       colors:{
-        navbar: '#5271FF',
+        navbar: `#6c89b9`,
       }
     },
   },

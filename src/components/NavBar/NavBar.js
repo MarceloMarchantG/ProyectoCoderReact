@@ -25,26 +25,32 @@ const categories = [
 const NavBar = () => {
 
     return(
-        <>
+        <div className='flex flex-row'>
+            <div>
             <nav className=" flex fixed  top-0  left-0 right-0 bg-blue-600">       
                 <div className=' flex flex-row w-4/5'>         
                     <Link className='text-white text-sm my-2 mx-2.5' to="/" >Inicio</Link> 
                     <div>
                         <button className="peer px-2 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm ">Categorias</button>               
                         <div className="absolute hidden peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg rounded-b-sm">
-                        {categories.map((category)=><Link className="px-5 py-3 text-sm  text-blue-600 hover:text-blue-800 hover:bg-blue-100" key={category.id} to={category.route}>{category.name}</Link>)}                  
+                        {categories.map((category)=><Link className="px-5 md:py-3 py-1 text-sm  text-blue-600 hover:text-blue-800 hover:bg-blue-100" key={category.id} to={category.route}>{category.name}</Link>)}                  
                         </div>
                     </div>
                 </div>
                 <div className=' flex flex-row-reverse w-1/5'>
                     <Link to={'/cart'}> <CartWidget /></Link>
                 </div>
-            </nav>    
-            <div className='flex mt-9 flex-row bg-blue-500'>                           
-                <Link to="/"><img src={logo} className="h-24 mx-2 border-white " alt="logo" /></Link>
-                <h1 className='flex text-5xl font-title italic items-center text-white mx-2'>The All Market</h1>
+            </nav> 
+            </div>   
+            <div className='flex mt-9 flex-row items-center justify-center w-full bg-blue-500'> 
+                <div>                          
+                <Link to="/"><img src={logo} className="h-24 mr-6 w-full border-white " alt="logo" /></Link>
+                </div>
+                <div>
+                <h1 className='flex md:text-6xl text-2xl font-title italic items-center w-full text-white mx-2'>The All Market</h1>
+                </div>
             </div>                            
-        </>
+        </div>
     )
 }
 

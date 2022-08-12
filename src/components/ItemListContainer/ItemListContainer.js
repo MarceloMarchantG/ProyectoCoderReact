@@ -34,7 +34,7 @@ const ItemListContainer = ({title}) =>{
 
     return(
         <div className="background">
-            <h3 className="text-white font-arial font-bold text-4xl text-center">{categoryName ? categoryName : title}
+            <h3 className="text-white font-arial font-bold md:text-4xl text-2xl text-center">{categoryName ? categoryName : title}
             </h3> 
             {loading ? <LinearProgress color="inherit" /> : <ItemList productos={productList}/>}           
         </div>
