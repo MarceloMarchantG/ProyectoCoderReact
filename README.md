@@ -27,7 +27,7 @@ Se usó para el almacenamiento de nuestra db con los productos.
 
 ## Autor ✒️
 
-* **Marcelo Marchant G** - [GitHub](https://github.com/MarceloMarchantG)   --    [Linkedin](www.linkedin.com/in/marcelo-marchant-gangas)
+* **Marcelo Marchant G** - [GitHub](https://github.com/MarceloMarchantG)  -  [Linkedin](https://www.linkedin.com/in/marcelo-marchant-gangas)
 
 
 
